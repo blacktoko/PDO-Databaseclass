@@ -5,7 +5,7 @@
  *
  * @copyright  2013 Tom Koggel
  * @version    Release: 1.3
- * @link       https://gist.github.com/blacktoko/5693254
+ * @link       https://github.com/blacktoko/PDO-Databaseclass/blob/master/db.class.php
  */
 class Database {
 
