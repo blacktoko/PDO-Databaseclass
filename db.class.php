@@ -4,7 +4,7 @@
  * BASIC PDO database class
  *
  * @copyright  2013 Tom Koggel
- * @version    Release: 1.3
+ * @version    Release: 1.4
  * @link       https://github.com/blacktoko/PDO-Databaseclass/blob/master/db.class.php
  */
 class Database {
