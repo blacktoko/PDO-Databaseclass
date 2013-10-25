@@ -115,6 +115,16 @@ class Database {
     }
 
     /**
+     * Returns one single value but as an object
+     * @return Object the value of the query
+     */ 
+    public function singleObject()
+    {
+        $this->execute();
+        return $this->stmt->fetchObject();
+    }
+
+    /**
      * Returns the number of affected rows
      * @return Int number of rows affected
      */
