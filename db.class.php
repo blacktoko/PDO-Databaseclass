@@ -9,15 +9,41 @@
  */
 class Database {
 
+    /**
+     * @var string Hostname
+     **/
     private $host;
+ 
+    /**
+     * @var string Username
+     **/
     private $user;
+ 
+    /**
+     * @var string Password
+     **/
     private $pass;
+ 
+    /**
+     * @var string Databasename
+     **/
     private $dbname;
-    
+ 
+    /**
+     * @var \PDO Database handler
+     **/
     private $dbh;
+ 
+    /**
+     * @var string Errorstring
+     **/
     private $error;
-
+  
+    /**
+     * @var string MySQL statement
+     **/
     private $stmt;
+ 
     /**
      * Construct the database connection.
      */
