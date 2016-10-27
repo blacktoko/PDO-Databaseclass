@@ -3,8 +3,8 @@
 /**
  * BASIC PDO database class
  *
- * @copyright  2013 Tom Koggel
- * @version    Release: 1.4
+ * @copyright  2016 Tom Koggel
+ * @version    Release: 1.6
  * @link       https://github.com/blacktoko/PDO-Databaseclass/blob/master/db.class.php
  */
 class Database {
