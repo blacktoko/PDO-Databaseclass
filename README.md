@@ -16,6 +16,9 @@ The name is the handle name to call the connection.
 * Run composer update to fetch the yaml class.
 * include the vendor/autoload.php in your php file.
 
+<h2>New php classes and files</h2>
+When you extend this project in your own. Update the psr-4 piece in the composer.json file.
+After updating and giving the namespaces run ```composer dump-autoload``` to update the autoloader files.
 
 <h2>Create connection</h2>
 ```php
