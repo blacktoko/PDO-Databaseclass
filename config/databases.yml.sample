@@ -1,0 +1,6 @@
+# app/config/databases.yml
+name:
+  database_host:      localhost
+  database_name:      dbname
+  database_user:      root
+  database_password:  passowrd
