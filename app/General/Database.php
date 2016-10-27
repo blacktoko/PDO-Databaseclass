@@ -1,58 +1,74 @@
 <?php
- 
+
 /**
  * BASIC PDO database class
  *
  * @copyright  2016 Tom Koggel
- * @version    Release: 1.6
+ * @version    Release: 1.8
  * @link       https://github.com/blacktoko/PDO-Databaseclass/blob/master/db.class.php
  */
+
+namespace General;
+
+use Symfony\Component\Yaml\Yaml;
+
 class Database {
 
     /**
      * @var string Hostname
      **/
     private $host;
- 
+
     /**
      * @var string Username
      **/
     private $user;
- 
+
     /**
      * @var string Password
      **/
     private $pass;
- 
+
     /**
      * @var string Databasename
      **/
     private $dbname;
- 
+
     /**
      * @var \PDO Database handler
      **/
     private $dbh;
- 
+
     /**
      * @var string Errorstring
      **/
     private $error;
-  
+
     /**
      * @var string MySQL statement
      **/
     private $stmt;
- 
+
+    /**
+     * @var Databases All databases from config
+     */
+    private $databases;
+
     /**
      * Construct the database connection.
      */
-    public function __construct($user, $pass, $dbname, $host='localhost')
+    public function __construct($name)
     {
-        $this->host = $host;
-        $this->user = $user;
-        $this->pass = $pass;
-        $this->dbname = $dbname;
+        $this->databases = Yaml::parse(file_get_contents(dirname(dirname(__DIR__)) . '/config/databases.yml'));
+
+        if ( ! array_key_exists($name, $this->databases)) {
+            throw new \Exception('Unable to load database, it does not appears in the config file.');
+        }
+
+        $this->host = $this->databases[$name]['database_host'];
+        $this->user = $this->databases[$name]['database_user'];
+        $this->pass = $this->databases[$name]['database_password'];
+        $this->dbname = $this->databases[$name]['database_name'];
 
         //Set the Database Source Name
         $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
@@ -143,7 +159,7 @@ class Database {
     /**
      * Returns one single value but as an object
      * @return Object the value of the query
-     */ 
+     */
     public function singleObject()
     {
         $this->execute();
