@@ -1,4 +1,4 @@
-<h1>Basic PDO Database class</h1>
+<h1>PDO Database class</h1>
 Simpel class for PDO beginners. The basic PDO features are Available in this class.
 
 <h2>Setup Config</h2>
